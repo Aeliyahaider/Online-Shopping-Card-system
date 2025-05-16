@@ -123,4 +123,71 @@ snode2* create_node2(int id, int qty)
         return newnode2;
     }
 }
+ 
+ void addProduct()
+{
+    system("cls");
+    int id, price, qty,pos,cnt=0,i;
+    printf("=========================================================\n\n");
+    printf("\t\t ADD PRODUCTS!!\n\n");
+    printf("=========================================================\n\n");
+    char name[20],ch;
+    printf("\nEnter the ID of the product: ");
+    scanf("%d", &id);
+    for (ptr = first;ptr != NULL;ptr = ptr->next)
+    {
+        if (ptr->id==id)
+        {
+            printf("Product ID already in use.");
+            getch();
+            return manageProduct();
+        }
 
+    }
+    printf("\nEnter the name of the product: ");
+    scanf("%s", name);
+    printf("\nEnter the price of the product: ");
+    scanf("%d", &price);
+    printf("\nEnter the quantity of the product: ");
+    scanf("%d", &qty);
+
+    newnode = create_node(id, name, price, qty);
+    pos = posProduct(id);
+    if (pos == 0) {
+        if (first == last && first == NULL) {
+            first = last = newnode;
+            first->next = NULL;
+            last->next = NULL;
+        } else {
+            temp = first;
+            first = newnode;
+            first->next = temp;
+        }
+    } else {
+        ptr = first;
+        while (ptr != NULL) {
+            ptr = ptr->next;
+            cnt++;
+        }
+        if (pos == 1) {
+            if (first == last && first == NULL) {
+                first = last = newnode;
+                first->next = NULL;
+                last->next = NULL;
+            } else {
+                temp = first;
+                first = newnode;
+                first->next = temp;
+            }
+        } else if (pos > 1 && pos <= cnt) {
+            ptr = first;
+            for (i = 1; i < pos; i++) {
+                prev = ptr;
+                ptr = ptr->next;
+            }
+            prev->next = newnode;
+            newnode->next = ptr;
+        } else {
+            printf("Product Not Found!!");
+        }
+    }
