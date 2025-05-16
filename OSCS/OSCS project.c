@@ -47,3 +47,43 @@ void clearCart();
 int posProduct(int id);
 int posCart(int id);
 void displayAllProduct();
+
+int main()
+{
+    int ch;
+
+    while (1)
+    {
+        system ("cls");
+        printf("=========================================================\n\n");
+        printf("\t\t WELCOME TO SHOPPING CART!!\n\n");
+        printf("=========================================================\n\n");
+        printf("1. Manage Product\n\n");
+        printf("2. Purchase Product\n\n");
+        printf("3. Generate Bill\n\n");
+        printf("0. Exit\n\n");
+        printf("=========================================================\n\n");
+        printf("\nPlease enter your Choice: ");
+        scanf("%d",&ch);
+
+        switch (ch)
+        {
+            case 1: {
+                manageProduct();
+                break;
+            }
+            case 2:{
+                purchaseProduct();
+                break;
+            }
+            case 3: {
+                generateBill();
+                break;
+            }
+            case 0: exit(0);
+            default: printf("Valid choice not entered!");
+        }
+
+    }
+
+}
