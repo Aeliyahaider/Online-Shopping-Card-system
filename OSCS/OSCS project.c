@@ -205,3 +205,15 @@ snode2* create_node2(int id, int qty)
 
     getch();
 }
+
+
+void displayAllProduct()
+{
+    system("cls");
+    if (first == NULL)
+    {
+        ISEMPTY;
+        printf("No Products Available. \n");
+        getch();
+        return main();
+    }
