@@ -191,29 +191,3 @@ snode2* create_node2(int id, int qty)
             printf("Product Not Found!!");
         }
     }
-    
-    printf("\nProduct Added Successfully!!");
-    printf("\nDo you want to add another product[Y/N]? ");
-    scanf("%s", &ch);
-    if (ch == 'Y' || ch == 'y') {
-        system("cls");
-        return addProduct();
-    }
-    if (ch == 'N' || ch == 'n') {
-        return;
-    }
-
-    getch();
-}
-
-
-void displayAllProduct()
-{
-    system("cls");
-    if (first == NULL)
-    {
-        ISEMPTY;
-        printf("No Products Available. \n");
-        getch();
-        return main();
-    }
