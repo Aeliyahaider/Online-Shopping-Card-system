@@ -96,3 +96,13 @@ snode* create_node(int id, char *name, int price, int qty)
         printf("\nSorry, no Products Available.");
         return 0;
     }
+    else
+    {
+        newnode->id=id;
+        strcpy(newnode->name,name);
+        newnode->price=price;
+        newnode->qty=qty;
+        newnode->next=NULL;
+        return newnode;
+    }
+}
