@@ -87,4 +87,40 @@ int main()
     }
 
 }
-//
+
+
+snode* create_node(int id, char *name, int price, int qty)
+{
+    newnode=(snode*)malloc(sizeof(snode));
+    if(newnode==NULL)
+    {
+        printf("\nSorry, no Products Available.");
+        return 0;
+    }
+    else
+    {
+        newnode->id=id;
+        strcpy(newnode->name,name);
+        newnode->price=price;
+        newnode->qty=qty;
+        newnode->next=NULL;
+        return newnode;
+    }
+}
+snode2* create_node2(int id, int qty)
+{
+    newnode2=(snode2*)malloc(sizeof(snode2));
+    if(newnode2==NULL)
+    {
+        printf("\nSorry, no Products Available.");
+        return 0;
+    }
+     else
+    {
+        newnode2->id=id;
+        newnode2->qty=qty;
+        newnode2->next2=NULL;
+        return newnode2;
+    }
+}
+
