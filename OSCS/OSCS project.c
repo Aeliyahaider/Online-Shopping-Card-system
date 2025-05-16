@@ -87,3 +87,12 @@ int main()
     }
 
 }
+
+snode* create_node(int id, char *name, int price, int qty)
+{
+    newnode=(snode*)malloc(sizeof(snode));
+    if(newnode==NULL)
+    {
+        printf("\nSorry, no Products Available.");
+        return 0;
+    }
