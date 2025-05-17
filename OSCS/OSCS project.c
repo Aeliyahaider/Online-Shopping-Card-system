@@ -191,3 +191,23 @@ snode2* create_node2(int id, int qty)
             printf("Product Not Found!!");
         }
     }
+    fprintf(fp, "=========================================================\n");
+    fprintf(fp, "\t\t RECEIPT\n");
+    fprintf(fp, "=========================================================\n");
+    fprintf(fp, "ID\tName\tQty\tPrice\tSubtotal\n");
+    
+    for (ptr2 = first2; ptr2 != NULL; ptr2 = ptr2->next2) {
+        for (ptr = first; ptr != NULL; ptr = ptr->next) {
+            if (ptr->id == ptr2->id) {
+                fprintf(fp, "%d\t%s\t%d\t%d\t%d\n", 
+                       ptr->id, ptr->name, ptr2->qty, ptr->price, ptr2->qty * ptr->price);
+                break;
+            }
+        }
+    }
+    fprintf(fp, "=========================================================\n");
+    fprintf(fp, "TOTAL AMOUNT: Rs. %d\n", total);
+    fprintf(fp, "=========================================================\n");
+    fclose(fp);
+    printf("\nReceipt saved to receipt.txt\n");
+}
