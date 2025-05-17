@@ -417,3 +417,14 @@ int posProduct(int id) {
     }
     return 0;
 }
+
+int posCart(int id) {
+    int pos = 0;
+    for (ptr2 = first2; ptr2 != NULL; ptr2 = ptr2->next2) {
+        pos++;
+        if (ptr2->id == id) {
+            return pos;
+        }
+    }
+    return 0;
+}
