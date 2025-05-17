@@ -377,3 +377,23 @@ void removeProduct() {
             return;
         }
     }
+    // Find and delete product
+    prev = NULL;
+    ptr = first;
+    
+    while (ptr != NULL) {
+        if (ptr->id == id) {
+            found = 1;
+            if (prev == NULL) {
+                // Deleting first node
+                first = ptr->next;
+                if (first == NULL) last = NULL;
+            } else {
+                prev->next = ptr->next;
+                if (ptr == last) last = prev;
+            }
+            free(ptr);
+            saveProductsToFile(); // Save after removal
+            printf("\nProduct deleted successfully!");
+            break;
+        }
