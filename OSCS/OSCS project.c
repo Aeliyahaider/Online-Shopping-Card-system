@@ -211,3 +211,18 @@ snode2* create_node2(int id, int qty)
     fclose(fp);
     printf("\nReceipt saved to receipt.txt\n");
 }
+snode* create_node(int id, char *name, int price, int qty) {
+    newnode = (snode*)malloc(sizeof(snode));
+    if (newnode == NULL) {
+        printf("\nMemory allocation failed.");
+        return NULL;
+    }
+    
+    newnode->id = id;
+    strncpy(newnode->name, name, 19);
+    newnode->name[19] = '\0';
+    newnode->price = price;
+    newnode->qty = qty;
+    newnode->next = NULL;
+    return newnode;
+}
