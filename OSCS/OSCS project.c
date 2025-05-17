@@ -318,3 +318,22 @@ void addProduct() {
         getch();
         return;
     }
+    // Add to beginning if list is empty
+    if (first == NULL) {
+        first = last = newnode;
+    } 
+    else {
+        // Add to end of list
+        last->next = newnode;
+        last = newnode;
+    }
+    
+    saveProductsToFile(); // Save after adding
+    printf("\nProduct Added Successfully!!");
+    
+    printf("\nDo you want to add another product[Y/N]? ");
+    scanf(" %c", &ch);
+    if (toupper(ch) == 'Y') {
+        addProduct();
+    }
+} 
