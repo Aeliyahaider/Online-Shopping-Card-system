@@ -356,3 +356,24 @@ void displayAllProduct() {
     
     printf("=========================================================\n\n");
 }
+
+void removeProduct() {
+    if (first == NULL) {
+        ISEMPTY;
+        printf("\nNo Products to delete\n");
+        getch();
+        return;
+    }
+    
+    printf("\nEnter the ID of the product to be deleted: ");
+    int id = validateInput(1, 9999);
+    int found = 0;
+    
+    // Check if product exists in cart
+    for (ptr2 = first2; ptr2 != NULL; ptr2 = ptr2->next2) {
+        if (ptr2->id == id) {
+            printf("\nCannot delete product. It exists in the cart!");
+            getch();
+            return;
+        }
+    }
