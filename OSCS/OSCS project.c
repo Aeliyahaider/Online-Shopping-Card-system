@@ -397,3 +397,23 @@ void removeProduct() {
             printf("\nProduct deleted successfully!");
             break;
         }
+        prev = ptr;
+        ptr = ptr->next;
+    }
+    
+    if (!found) {
+        printf("\nProduct Not Found!!");
+    }
+    getch();
+}
+
+int posProduct(int id) {
+    int pos = 0;
+    for (ptr = first; ptr != NULL; ptr = ptr->next) {
+        pos++;
+        if (ptr->id == id) {
+            return pos;
+        }
+    }
+    return 0;
+}
