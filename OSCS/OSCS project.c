@@ -271,3 +271,25 @@ void manageProduct() {
         }
     }
 }
+void addProduct() {
+    system("cls");
+    int id, price, qty, pos, cnt = 0, i;
+    char name[20], ch;
+    
+    printf("=========================================================\n\n");
+    printf("\t\t ADD PRODUCTS!!\n\n");
+    printf("=========================================================\n\n");
+    
+    // Input validation loop for ID
+    while (1) {
+        printf("\nEnter the ID of the product (1-9999): ");
+        id = validateInput(1, 9999);
+        
+        // Check if ID already exists
+        int idExists = 0;
+        for (ptr = first; ptr != NULL; ptr = ptr->next) {
+            if (ptr->id == id) {
+                idExists = 1;
+                break;
+            }
+        }
