@@ -337,3 +337,22 @@ void addProduct() {
         addProduct();
     }
 } 
+void displayAllProduct() {
+    system("cls");
+    if (first == NULL) {
+        ISEMPTY;
+        printf("No Products Available. \n");
+        return;
+    }
+    
+    printf("=========================================================\n\n");
+    printf("\t\t Product Details\n\n");
+    printf("=========================================================\n\n");
+    printf("ID\tName\tQty\tPrice(Rs.)\n\n");
+    
+    for (ptr = first; ptr != NULL; ptr = ptr->next) {
+        printf("%d\t%s\t%d\t%d\n", ptr->id, ptr->name, ptr->qty, ptr->price);
+    }
+    
+    printf("=========================================================\n\n");
+}
