@@ -226,3 +226,15 @@ snode* create_node(int id, char *name, int price, int qty) {
     newnode->next = NULL;
     return newnode;
 }
+snode2* create_node2(int id, int qty) {
+    newnode2 = (snode2*)malloc(sizeof(snode2));
+    if (newnode2 == NULL) {
+        printf("\nMemory allocation failed.");
+        return NULL;
+    }
+    
+    newnode2->id = id;
+    newnode2->qty = qty;
+    newnode2->next2 = NULL;
+    return newnode2;
+}
