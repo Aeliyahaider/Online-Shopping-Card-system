@@ -293,3 +293,28 @@ void addProduct() {
                 break;
             }
         }
+        
+        if (!idExists) break;
+        printf("Product ID already in use. Please enter a different ID.\n");
+    }
+    
+    // Input validation loop for name
+    while (1) {
+        printf("\nEnter the name of the product (letters only, max 19 chars): ");
+        scanf("%19s", name);
+        if (isProductNameValid(name)) break;
+        printf("Invalid product name! Only letters are allowed (max 19 chars).\n");
+    }
+    
+    printf("\nEnter the price of the product (1-10000): ");
+    price = validateInput(1, 10000);
+    
+    printf("\nEnter the quantity of the product (1-1000): ");
+    qty = validateInput(1, 1000);
+    
+    newnode = create_node(id, name, price, qty);
+    if (newnode == NULL) {
+        printf("\nFailed to create product.");
+        getch();
+        return;
+    }
