@@ -472,3 +472,24 @@ void addToCart() {
             break;
         }
     }
+    
+    printf("\nEnter the quantity[1-10]: ");
+    qty = validateInput(1, 10);
+    
+    checkStock(id, qty);
+    
+    // Check if product already in cart
+    for (ptr2 = first2; ptr2 != NULL; ptr2 = ptr2->next2) {
+        if (ptr2->id == id) {
+            ptr2->qty += qty;
+            if (ptr2->qty > 10) {
+                ptr2->qty = 10;
+                printf("\nQuantity limited to 10 as per policy.");
+            }
+            saveCartToFile();
+            printf("\nProduct quantity updated in cart!");
+            getch();
+            return;
+        }
+    }
+    
