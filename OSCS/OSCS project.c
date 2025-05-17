@@ -252,3 +252,12 @@ void manageProduct() {
         printf("=========================================================\n\n");
         printf("\nPlease enter your Choice: ");
         ch = validateInput(0, 3);
+        
+        switch (ch) {
+            case 1: addProduct(); break;
+            case 2: {
+                displayAllProduct();
+                printf("\nPress any key to continue...");
+                getch();
+                break;
+            }
