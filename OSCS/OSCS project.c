@@ -428,3 +428,24 @@ int posCart(int id) {
     }
     return 0;
 }
+
+void purchaseProduct() {
+    int ch;
+    while (1) {
+        system("cls");
+        displayAllProduct();
+        printf("\n\t\t WELCOME CUSTOMER!!\n\n");
+        printf("1. Add to Cart\n");
+        printf("2. View Cart\n");
+        printf("0. Back\n");
+        printf("\nPlease enter your Choice: ");
+        ch = validateInput(0, 2);
+        
+        switch (ch) {
+            case 1: addToCart(); break;
+            case 2: viewCart(); break;
+            case 0: return;
+            default: printf("Valid choice not entered!");
+        }
+    }
+}
