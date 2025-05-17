@@ -261,3 +261,13 @@ void manageProduct() {
                 getch();
                 break;
             }
+            case 3: {
+                displayAllProduct();
+                removeProduct();
+                break;
+            }
+            case 0: return;
+            default: printf("Valid choice not entered!");
+        }
+    }
+}
