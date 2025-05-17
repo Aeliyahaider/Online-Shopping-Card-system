@@ -449,3 +449,13 @@ void purchaseProduct() {
         }
     }
 }
+
+void addToCart() {
+    system("cls");
+    displayAllProduct();
+    
+    if (first == NULL) {
+        printf("\nNo products available to add to cart!");
+        getch();
+        return;
+    }
