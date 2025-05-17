@@ -238,3 +238,17 @@ snode2* create_node2(int id, int qty) {
     newnode2->next2 = NULL;
     return newnode2;
 }
+void manageProduct() {
+    int ch;
+    while (1) {
+        system("cls");
+        printf("=========================================================\n\n");
+        printf("\t\t WELCOME MANAGER!!\n\n");
+        printf("=========================================================\n\n");
+        printf("1. Add New Product\n\n");
+        printf("2. Display All Products\n\n");
+        printf("3. Remove Product\n\n");
+        printf("0. Back\n\n");
+        printf("=========================================================\n\n");
+        printf("\nPlease enter your Choice: ");
+        ch = validateInput(0, 3);
