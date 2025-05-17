@@ -459,3 +459,16 @@ void addToCart() {
         getch();
         return;
     }
+    
+    int id, qty;
+    printf("\nEnter the ID of the product you wish to add to cart: ");
+    id = validateInput(1, 9999);
+    
+    // Check if product exists
+    int productExists = 0;
+    for (ptr = first; ptr != NULL; ptr = ptr->next) {
+        if (ptr->id == id) {
+            productExists = 1;
+            break;
+        }
+    }
