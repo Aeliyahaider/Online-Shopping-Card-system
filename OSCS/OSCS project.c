@@ -534,3 +534,10 @@ void viewCart()
         getch();
         return main();
     }
+    else
+    {
+        printf("=========================================================\n\n");
+        printf("\t\t PRODUCTS IN CART\n\n");
+        printf("=========================================================\n\n");
+        printf("ID\t Name\t Qty.\t Price(Rs.)\n\n");
+        for (ptr2 = first2;ptr2 != NULL;ptr2 = ptr2->next2)
