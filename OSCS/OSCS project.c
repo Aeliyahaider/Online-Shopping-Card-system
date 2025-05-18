@@ -645,6 +645,7 @@ void modifyCart()
     return generateBill();
 
 }
+
 void deleteCart(int id)
 {
     int pos,cnt=0,i;
@@ -653,3 +654,40 @@ void deleteCart(int id)
         ISEMPTY;
         printf("\nNo Products to delete\n");
     }
+    else
+    {
+        pos = posCart(id);
+        ptr2 = first2;
+        if (pos == 1)
+        {
+            first2 = ptr2->next2;
+            printf("\nProduct deleted from Cart.");
+        }
+        else
+        {
+            while (ptr2 != NULL)
+            {
+                ptr2 = ptr2->next2;
+                cnt = cnt + 1;
+            }
+            if (pos > 0 && pos <= cnt)
+            {
+                ptr2 = first2;
+                for (i = 1; i < pos; i++)
+                {
+                    prev2 = ptr2;
+                    ptr2 = ptr2->next2;
+                }
+                prev2->next2 = ptr2->next2;
+            }
+            else
+            {
+                printf("\nProduct Not Found!!");
+                getch();
+                return generateBill();
+            }
+            free(ptr);
+            printf("\nProduct deleted");
+        }
+    }
+}
