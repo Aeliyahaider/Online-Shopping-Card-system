@@ -571,3 +571,24 @@ void generateBill()
     printf("\n0. Back");
     printf("\nPlease enter your Choice: ");
     scanf("%d", &ch);
+     switch (ch)
+    {
+        case 1: {
+            modifyCart();
+            break;
+        }
+        case 2: {
+            checkout();
+            break;
+        }
+        case 0:
+        {
+            return main();
+        }
+        default: {
+            printf("Valid choice not entered!");
+            getch();
+            return generateBill();
+        }
+    }
+}
