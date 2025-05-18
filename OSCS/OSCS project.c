@@ -524,4 +524,13 @@ void addToCart() {
 
     }
 }
-
+void viewCart()
+{
+    system("cls");
+    if (first == NULL)
+    {
+        ISEMPTY;
+        printf("No Products Available in Cart. \n");
+        getch();
+        return main();
+    }
