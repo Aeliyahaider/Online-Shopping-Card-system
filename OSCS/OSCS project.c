@@ -728,3 +728,19 @@ void checkout()
         }
         printf("\n");
     }
+    printf("\n===================>> Total Bill Amount [Rs:  %d   ]\n\n",total);
+    printf("\n Are you sure you want to checkout[Y/N]?");
+    scanf("%s",&ch);
+    if (ch == 'Y'||ch == 'y')
+    {
+        updateStock();
+        clearCart();
+        printf("\nPurchase Successful!!");
+    }
+    if (ch == 'N'||ch == 'n')
+    {
+        return generateBill();
+    }
+    getch();
+
+}
