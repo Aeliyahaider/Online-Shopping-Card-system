@@ -592,3 +592,11 @@ void generateBill()
         }
     }
 }
+
+void modifyCart()
+{
+    int id,qty,ch;
+    system("cls");
+    viewCart();
+    printf("\nEnter the ID of the Product you wish to Modify: ");
+    scanf("%d",&id);
