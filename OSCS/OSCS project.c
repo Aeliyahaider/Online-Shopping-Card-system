@@ -744,3 +744,17 @@ void checkout()
     getch();
 
 }
+
+void updateStock()
+{
+    for (ptr2 = first2;ptr2 != NULL;ptr2 = ptr2->next2)
+    {
+        for (ptr = first; ptr != NULL; ptr = ptr->next)
+        {
+            if (ptr->id == ptr2->id)
+            {
+                ptr->qty=(ptr->qty)-ptr2->qty;
+            }
+        }
+    }
+}
