@@ -608,3 +608,40 @@ void modifyCart()
             printf("\n0. Back.");
             printf("\nPlease enter your Choice: ");
             scanf("%d", &ch);
+            switch (ch) {
+                case 1: {
+                    deleteCart(id);
+                    getch();
+                    return generateBill();
+                }
+                case 2: {
+                    printf("\nEnter the new quantity[1-10]: ");
+                    scanf("%d", &qty);
+                    if (qty <= 10) {
+                        updateCart(id, qty);
+                        getch();
+                        return generateBill();
+                    } else {
+                        printf("Quantity can't exceed 10.");
+                        getch();
+                        return modifyCart();
+                    }
+                }
+                case 0: {
+                    return generateBill();
+                }
+                default: {
+                    printf("Valid choice not entered!");
+                    getch();
+                    return generateBill();
+                }
+            }
+
+        }
+
+    }
+    printf("\n Product Not Found!!");
+    getch();
+    return generateBill();
+
+}
