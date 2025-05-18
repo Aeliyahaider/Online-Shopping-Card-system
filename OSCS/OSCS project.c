@@ -501,3 +501,27 @@ void addToCart() {
         return;
     }
     
+    void checkStock(int id, int qty)
+{
+    if (first == NULL)
+    {
+        ISEMPTY;
+    }
+    else
+    {
+        for (ptr = first;ptr != NULL;ptr = ptr->next)
+        {
+            if (ptr->id == id)
+            {
+                if (ptr->qty<qty)
+                {
+                    printf("Not enough products available.");
+                    getch();
+                    return purchaseProduct();
+                }
+            }
+        }
+
+    }
+}
+
