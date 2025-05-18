@@ -541,3 +541,22 @@ void viewCart()
         printf("=========================================================\n\n");
         printf("ID\t Name\t Qty.\t Price(Rs.)\n\n");
         for (ptr2 = first2;ptr2 != NULL;ptr2 = ptr2->next2)
+        for (ptr2 = first2;ptr2 != NULL;ptr2 = ptr2->next2)
+        {
+            printf("%d\t", ptr2->id);
+            for (ptr = first;ptr != NULL;ptr = ptr->next)
+            {
+                if (ptr->id==ptr2->id)
+                {
+                    printf("%s\t", ptr->name);
+                    printf("%d\t", ptr2->qty);
+                    printf("%d\t", ptr->price);
+                }
+
+            }
+            printf("\n");
+        }
+        printf("=========================================================\n\n");
+    }
+    getch();
+}
