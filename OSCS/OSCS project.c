@@ -493,3 +493,11 @@ void addToCart() {
         }
     }
     
+    // Add new item to cart
+    newnode2 = create_node2(id, qty);
+    if (newnode2 == NULL) {
+        printf("\nFailed to add to cart.");
+        getch();
+        return;
+    }
+    
