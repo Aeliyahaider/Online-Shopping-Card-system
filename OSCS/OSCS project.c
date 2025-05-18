@@ -758,3 +758,11 @@ void updateStock()
         }
     }
 }
+
+void clearCart()
+{
+    for (ptr2 = first2;ptr2 != NULL;ptr2 = ptr2->next2)
+    {
+        deleteCart(ptr2->id);
+    }
+}
