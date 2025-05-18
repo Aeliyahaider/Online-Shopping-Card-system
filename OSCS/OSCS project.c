@@ -691,3 +691,23 @@ void deleteCart(int id)
         }
     }
 }
+
+void updateCart(int id, int qty)
+{
+    if (first2 == NULL)
+    {
+        ISEMPTY;
+    }
+    else
+    {
+        for (ptr2 = first2; ptr2 != NULL; ptr2 = ptr2->next2)
+        {
+            if (ptr2->id == id)
+            {
+                ptr2->qty = qty;
+                return generateBill();
+
+            }
+        }
+    }
+}
