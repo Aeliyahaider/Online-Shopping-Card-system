@@ -645,3 +645,11 @@ void modifyCart()
     return generateBill();
 
 }
+void deleteCart(int id)
+{
+    int pos,cnt=0,i;
+    if (first2 == NULL)
+    {
+        ISEMPTY;
+        printf("\nNo Products to delete\n");
+    }
