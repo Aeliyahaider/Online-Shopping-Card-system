@@ -560,3 +560,14 @@ void viewCart()
     }
     getch();
 }
+
+void generateBill()
+{
+    int ch;
+    system("cls");
+    viewCart();
+    printf("\n1. Modify your cart.");
+    printf("\n2. Proceed to Checkout.");
+    printf("\n0. Back");
+    printf("\nPlease enter your Choice: ");
+    scanf("%d", &ch);
