@@ -711,3 +711,20 @@ void updateCart(int id, int qty)
         }
     }
 }
+
+void checkout()
+{
+    int total=0;
+    char ch;
+    viewCart();
+    for (ptr2 = first2;ptr2 != NULL;ptr2 = ptr2->next2)
+    {
+        for (ptr = first;ptr != NULL;ptr = ptr->next)
+        {
+            if (ptr->id==ptr2->id)
+            {
+                total+=(ptr2->qty)*(ptr->price);
+            }
+        }
+        printf("\n");
+    }
