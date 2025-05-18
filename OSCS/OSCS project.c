@@ -600,3 +600,11 @@ void modifyCart()
     viewCart();
     printf("\nEnter the ID of the Product you wish to Modify: ");
     scanf("%d",&id);
+    for (ptr2 = first2;ptr2 != NULL;ptr2 = ptr2->next2) {
+        if (ptr2->id == id)
+        {
+            printf("\n1. Delete Product.");
+            printf("\n2. Modify the quantity.");
+            printf("\n0. Back.");
+            printf("\nPlease enter your Choice: ");
+            scanf("%d", &ch);
