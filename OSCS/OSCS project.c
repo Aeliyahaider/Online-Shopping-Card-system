@@ -645,3 +645,124 @@ void modifyCart()
     return generateBill();
 
 }
+
+void deleteCart(int id)
+{
+    int pos,cnt=0,i;
+    if (first2 == NULL)
+    {
+        ISEMPTY;
+        printf("\nNo Products to delete\n");
+    }
+    else
+    {
+        pos = posCart(id);
+        ptr2 = first2;
+        if (pos == 1)
+        {
+            first2 = ptr2->next2;
+            printf("\nProduct deleted from Cart.");
+        }
+        else
+        {
+            while (ptr2 != NULL)
+            {
+                ptr2 = ptr2->next2;
+                cnt = cnt + 1;
+            }
+            if (pos > 0 && pos <= cnt)
+            {
+                ptr2 = first2;
+                for (i = 1; i < pos; i++)
+                {
+                    prev2 = ptr2;
+                    ptr2 = ptr2->next2;
+                }
+                prev2->next2 = ptr2->next2;
+            }
+            else
+            {
+                printf("\nProduct Not Found!!");
+                getch();
+                return generateBill();
+            }
+            free(ptr);
+            printf("\nProduct deleted");
+        }
+    }
+}
+
+void updateCart(int id, int qty)
+{
+    if (first2 == NULL)
+    {
+        ISEMPTY;
+    }
+    else
+    {
+        for (ptr2 = first2; ptr2 != NULL; ptr2 = ptr2->next2)
+        {
+            if (ptr2->id == id)
+            {
+                ptr2->qty = qty;
+                return generateBill();
+
+            }
+        }
+    }
+}
+
+void checkout()
+{
+    int total=0;
+    char ch;
+    viewCart();
+    for (ptr2 = first2;ptr2 != NULL;ptr2 = ptr2->next2)
+    {
+        for (ptr = first;ptr != NULL;ptr = ptr->next)
+        {
+            if (ptr->id==ptr2->id)
+            {
+                total+=(ptr2->qty)*(ptr->price);
+            }
+        }
+        printf("\n");
+    }
+    printf("\n===================>> Total Bill Amount [Rs:  %d   ]\n\n",total);
+    printf("\n Are you sure you want to checkout[Y/N]?");
+    scanf("%s",&ch);
+    if (ch == 'Y'||ch == 'y')
+    {
+        updateStock();
+        clearCart();
+        printf("\nPurchase Successful!!");
+    }
+    if (ch == 'N'||ch == 'n')
+    {
+        return generateBill();
+    }
+    getch();
+
+}
+
+void updateStock()
+{
+    for (ptr2 = first2;ptr2 != NULL;ptr2 = ptr2->next2)
+    {
+        for (ptr = first; ptr != NULL; ptr = ptr->next)
+        {
+            if (ptr->id == ptr2->id)
+            {
+                ptr->qty=(ptr->qty)-ptr2->qty;
+            }
+        }
+    }
+}
+
+void clearCart()
+{
+    for (ptr2 = first2;ptr2 != NULL;ptr2 = ptr2->next2)
+    {
+        deleteCart(ptr2->id);
+    }
+}
